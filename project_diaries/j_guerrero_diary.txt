@@ -1,0 +1,7 @@
+Joshua Guerrero
+CS372 Software Construction
+Project Dairy
+
+=== February 8, 2016 - Monday ===
+
+	Created repository for group project and set up file directories. Plan to get together and start working out how we are going to go through documentation before Wednesday.
