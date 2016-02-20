@@ -1,0 +1,27 @@
+Diary:
+
+1st Entry:
+My partner (Josh) and I haven't begun any real work on the project yet, but we have agreed to do it in C++. I'm glad we can simply do it vs an AI,
+because that means we don't need to worry about how to handle switching between players.
+
+2nd Entry:
+Josh set up the repository, and it works! It turns out our schedules don't align very well, so we may do most of this project asynchronously over
+the internet, and re-group in class.
+
+3rd Entry:
+Neither of us appear very driven to get going on this project, at least until our first pair-programming session. But we have begun to hash out
+various requirements and user stories.
+
+2/17/16:
+It's occurred to me that I should probably start dating my entries. Today was our first pair-programming session. After having to figure out how
+to get "catch.hpp" to work with Assignment 2, I saw how easy it was and decided that's probably the right way to go for unit-testing our project.
+So, I spent some time before class studying how to use it a bit.
+I liked pair-programming, honestly. The only thing I was worried about was that I would look stupid in front of my partner if I had to Google
+something basic I'd forgotten how to do. Or if, when we switched places, whether or not I'd know where he was going with his code well enough to
+continue it. But my studying of Catch a little earlier proved totally useful, and we made a good team because he set up the class and
+everything first, then I set up the unit tests. I think my favorite thing about pair programming so far is that if one programmer gets a brain
+fart on something basic, the time spent trying to remember it is immediately glossed over by the partner watching. This keeps the momentum going.
+
+2/19/16:
+Josh presented today. We're going to need to sit down soon and make some real progress before next Friday. I think it'll be easy to get somewhere
+though. It's simply a matter of setting aside the time to DO it.
