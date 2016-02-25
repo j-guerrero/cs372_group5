@@ -16,6 +16,9 @@ Requirements:
 -- PLAYER CLASS --
 	-> Must be able to store data members and retrieve
 
+VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
+VVVV --- ACTUAL DOCUMENT --- VVVV
+VVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVVV
 
 == Functional Requirements ==
 What the function needs to be able to do
@@ -46,7 +49,7 @@ Valid Input Checking
 
 Computer Opponent (AI)
 	-> Fire valid shots
-		-> Mark which shots ahve already been completed
+		-> Mark which shots have already been completed
 	-> Must be able to track human ships
 		-> If enemy ship is hit, run algorithm to check other spaces until completed
 
