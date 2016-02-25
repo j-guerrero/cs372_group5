@@ -25,3 +25,17 @@ fart on something basic, the time spent trying to remember it is immediately glo
 2/19/16:
 Josh presented today. We're going to need to sit down soon and make some real progress before next Friday. I think it'll be easy to get somewhere
 though. It's simply a matter of setting aside the time to DO it.
+
+2/22/16:
+We've put some more time into defining our requirements. For the sake of testing, I've decided it makes a lot of sense to break all the code up
+into as many functions as is reasonable. This will not only make it easier to test individual portions of code, but will also help our code follow
+the Single Responsibility Principle.
+
+2/23/16:
+In preparation for tomorrow, I've started constructing the basic framework for the game. I made the primary game loop, set up the basic concept
+for player and AI input, and built a bunch of dummy functions that I'll build tests for before I actually write the functions.
+
+2/24/16:
+Unfortunately, Josh had to help a friend with a medical emergency today, so he couldn't come to pair programming. It's not a big deal, but I
+am a little worried about our ability to coordinate in preparation for the presentation on Friday (two days from now).
+
