@@ -7,7 +7,15 @@ Project Dairy
 	Created repository for group project and set up file directories. Plan to get together and start working out how we are going to go through documentation before Wednesday.
 
 === February 17, 2016 - Thursday ===
-Did some pair-programming and learned how to properly use “cache.hpp” for testing. Made a quick requirements document and chose one to focus on. Really enjoy pair-programming for the fact, while it takes longer, it’s easier to break down and solve any problems we run into (at least for now).
+	Did some pair-programming and learned how to properly use “catch.hpp” for testing. Made a quick requirements document and chose one to focus on. Really enjoy pair-programming for the fact, while it takes longer, it’s easier to break down and solve any problems we run into (at least for now).
 
 === February 19,2016 - Friday ===
-Gave a quick presentation on one of our requirements and our process for testing. Currently in the process of writing up an official requirements document. Need to start creating a prototype to demonstrate with to the class on this upcoming Friday.
+	Gave a quick presentation on one of our requirements and our process for testing. Currently in the process of writing up an official requirements document. Need to start creating a prototype to demonstrate with to the class on this upcoming Friday.
+
+== February 22, 2016, Monday == 
+	Talked to Cody and split up work for presentation on Friday. Formulated ideas for how we wanted to split up the work before Friday. Cody would work on basic setup code for our game while I polish up our requirements documentation.
+
+== February 26, 2016 ==
+	Made a formal Word document for our requirements document, started filling it out, and uploaded it to our GitHub repo. Need to talk to Cody to agree on how we want to differentiate or functional requirements from non-functional requirements. Also, need to sort our a little more how we want our document to flow.
+
+	We also have a running program we can present to the class on Friday. It’s basic but it runs. We also have a test file that uses “catch.hpp” for testing certain input.
