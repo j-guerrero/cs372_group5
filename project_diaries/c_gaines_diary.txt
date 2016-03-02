@@ -39,3 +39,10 @@ for player and AI input, and built a bunch of dummy functions that I'll build te
 Unfortunately, Josh had to help a friend with a medical emergency today, so he couldn't come to pair programming. It's not a big deal, but I
 am a little worried about our ability to coordinate in preparation for the presentation on Friday (two days from now).
 
+2/26/16:
+The presentation went fine, though it became apparent that we are a bit behind. I'm not too worried though; once we agree how to store and
+present the board the rest should be pretty straightforward.
+
+2/29/16:
+We have roughly two weeks remaining before this is due, and it unfortunately looks like I'm gonna be really busy this week. But I'll do what I can,
+probably Wednesday but also some of Thursday and before class on Friday.
