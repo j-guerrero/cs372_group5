@@ -19,3 +19,6 @@ Project Dairy
 	Made a formal Word document for our requirements document, started filling it out, and uploaded it to our GitHub repo. Need to talk to Cody to agree on how we want to differentiate or functional requirements from non-functional requirements. Also, need to sort our a little more how we want our document to flow.
 
 	We also have a running program we can present to the class on Friday. It’s basic but it runs. We also have a test file that uses “catch.hpp” for testing certain input.
+
+== February 29, 2016 ==
+	Created a file to prototype board creation and coordinate checking. Cody said he would take it and work with it. Even though we are a little behind compared to others, we have put a lot of thought into which steps we want to take next.
