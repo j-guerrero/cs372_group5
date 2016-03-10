@@ -46,3 +46,20 @@ present the board the rest should be pretty straightforward.
 2/29/16:
 We have roughly two weeks remaining before this is due, and it unfortunately looks like I'm gonna be really busy this week. But I'll do what I can,
 probably Wednesday but also some of Thursday and before class on Friday.
+
+3/2/16:
+Josh recently added some code implementing boards, so I started looking through it and incorporated it into the primary source code file. Everything he
+did seems quite good to me, though I had one major critique that I shared with him.
+We now have a main game loop that displays one board, takes input from the user, and marks the chosen coordinates as "hit" on the board. Next, I should
+probably make it so the AI randomly provides input, and then make a function that randomly places ships onto the board. That'll likely be a little
+tricky, but once those are figured out, we simply need to be able to check if all ships are gone and the essential game should be playable.
+
+3/8/16:
+This week has been CRAZY. Almost all my midterms decided to strike this week, in addition to two projects besides this one. As a result, I've unfortunately done nothing since I last updated. I've reached the point where I have 3 tasks remaining including this one, all of which are due Friday. Since this one is due early in the day, however, it is now my highest priority. So tomorrow I plan to do what it takes to truly get it done. Since Josh has been responsible for formatting our requirements document and organizing the repository during all of this, I'm more than willing to take on the remaining workload. I just hope I'm capable enough to get it all done in a reasonable amount of time.
+
+3/9/16:
+I finished all of the essentials to hold a game of Battleship! I followed our requirements far enough to get it done, so now we at least have a finished product to turn in. You switch turns with the AI, you each get a board, it only shows the ships on your board while tracking the progress of both players, players can't hit the same square twice, it provides a message when a ship is sunk, and of course, ends the game when one player wins!
+However, there are two major things I would like to improve if I can find time. The first is allowing the player to set the position of his or her own ships; currently both the player board and the AI board are randomized at start. This probably won't get done; without a graphics interface, there's no real satisfying way to place ships anyway, so I imagine it's almost nicer not to have to worry about it.
+The other thing is the AI, which currently fires on completely random coordinates with no pattern whatsoever. Ideally, it would instead fire on random locations in a "checkerboard" pattern until it gets a hit, at which point it would try adjacent squares to all hits before going back to the checkerboard pattern. I have an idea for how to implement this, but it'd require some messiness that I've been trying to avoid so far.
+My functions aren't the cleanest things ever, but I'm fairly proud of how modular things feel overall. If I cared enough, I'd break things up into even smaller functions, because it makes them easier to test, helps me hold true to DRY and the SRP, and keeps main less cluttered. But what I have has served pretty well.
+I'll see if I can improve the AI, but I'm nearing the end of the amount of effort I can afford to put into this project before it's due.

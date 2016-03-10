@@ -1,9 +1,11 @@
 #pragma once
 
 #include <iostream>
+#include <vector>
 using std::cout;
 using std::cin;
 using std::endl;
+using std::vector;
 
 #include <string>
 using std::string;
@@ -58,40 +60,17 @@ public:
 	{
 		occupied = flag;
 	}
-
 };
 
-/*
-void fillBoard(Board(&gameBoard)[10][10])
+void displayBoard(bool displayShips, Board(&gameBoard)[10][10])
 {
-	std::srand(std::time(0));
+	vector <char> letters = { 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' };
+
+	cout << "   0 1 2 3 4 5 6 7 8 9" << endl;
 
 	for (int i = 0; i < 10; ++i)
 	{
-		char column = (65 + i);
-
-		for (int j = 0; j < 10; ++j)
-		{
-			// Give name to each square
-			string name = (column + std::to_string(j));
-			gameBoard[i][j].setName(name);
-
-			
-			// Set randomly occupied squares
-			int rand_variable = std::rand() % 100;
-			if (rand_variable % 4 == 0)
-			{
-				gameBoard[i][j].setOccupied(true);
-			}
-		}
-	}
-}*/
-
-
-void displayBoard(Board(&gameBoard)[10][10])
-{
-	for (int i = 0; i < 10; ++i)
-	{
+		cout << letters[i] << ": ";
 		for (int j = 0; j < 10; ++j)
 		{
 			// If hit marker flagged
@@ -111,7 +90,11 @@ void displayBoard(Board(&gameBoard)[10][10])
 			// Else, empty water
 			else
 			{
-				cout << "~" << " ";
+				if (displayShips && gameBoard[i][j].getOccupied()) {
+					cout << "#" << " ";
+				}
+				else
+					cout << "~" << " ";
 			}
 		}
 		cout << endl;

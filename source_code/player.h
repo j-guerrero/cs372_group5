@@ -5,15 +5,18 @@ class Player
 {
 	public:
 
-		Player(int x, bool y):shipCount(x), nonPlayerFlag(y)
+		Player(int x, bool y):shipCount(x), playerFlag(y)
 		{}
 
 		/* --- { SET FUNCTIONS } --- */
 		void setShipCount(int set)
 		{	shipCount = set;	}
 
+		void decShipCount()
+		{	shipCount--;	}
+
 		void setNonPlayerFlag(bool flag)
-		{	nonPlayerFlag = flag;	}
+		{	playerFlag = flag;	}
 
 
 		/* --- { GET FUNCTIONS } --- */
@@ -21,11 +24,11 @@ class Player
 		{	return shipCount;	}
 
 		bool getNonPlayerFlag()
-		{	return nonPlayerFlag;	}
+		{	return playerFlag;	}
 
 	private:
 		int shipCount;
-		bool nonPlayerFlag;
+		bool playerFlag;
 
 		// Variable that holds ship
 		// Variable that holds player board

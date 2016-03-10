@@ -1,9 +1,17 @@
 #pragma once
 
 #include "board.h"
+#include "player.h"
+#include <string>
+#include <vector>
+using std::string;
+using std::vector;
+#include <ctype.h>
+#include <random>
+using std::random_shuffle;
+#include <time.h>
 #include <string>
 using std::string;
-#include <ctype.h>
 
 // row_Input
 // Given a set of valid 2-character coordinates, returns
@@ -75,37 +83,149 @@ bool check_Validity(string input) {
 }
 
 // AI_Input
-// Generates and returns a random set of available coordinates.
-string AI_Input() {
-	// Idea - create a vector of possible letters
-	// Then create a vector of possible numbers
-	// Pick a random element from each, and pop them out.
-	//
-	// This way, you don't need to check if they're available.
-	return "";
+// Given a vector of possible input, removes a random value
+// from it and returns that value as a set of available coordinates.
+string AI_Input(vector <string>& totalInput) {
+	string AIinput = "";
+
+	random_shuffle(totalInput.begin(), totalInput.end());
+
+	AIinput = totalInput[0];
+
+	totalInput.erase(totalInput.begin());
+
+	return AIinput;
+}
+
+// random_Place_Ship
+// Given a length, a name, and a board, randomly sets a ship of that
+// length with that name somewhere on the board that doesn't go over
+// the edge or cross another already placed ship.
+void random_Place_Ship(int length, string name, Board(&gameBoard)[10][10]) {
+	bool horizontal = (rand() % 2 == 1);
+
+	vector <char> first = { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j' };
+	vector <char> second = { '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' };
+	vector <string> allPositions = {};
+	int columns = 10;
+	int rows = 10;
+
+	if (horizontal)
+		columns -= length;
+	else
+		rows -= length;
+
+	for (int i = 0; i < rows; i++) {
+		for (int j = 0; j < columns; j++) {
+			string temp = "";
+			temp += first[i];
+			temp += second[j];
+			allPositions.push_back(temp);
+		}
+	}
+	// At this point, all we have done is construct a vector of all possible starting coordinates
+	// to place a ship of the given length without it having any chance of going over the edge.
+
+	random_shuffle(allPositions.begin(), allPositions.end());
+
+	for (int i = 0; i < allPositions.size(); i++) {
+		bool validPlace = true;
+		bool placedShip = false;
+		int rowcoord = row_Input(allPositions[i]);
+		int columncoord = allPositions[i][1] - '0';
+
+		if (horizontal) {
+			for (int j = 0; j < length; j++) {
+				if (gameBoard[rowcoord][columncoord + j].getOccupied()) {
+					validPlace = false;
+					break;
+				}
+			}
+			if (validPlace) {
+				for (int j = 0; j < length; j++) {
+					gameBoard[rowcoord][columncoord + j].setOccupied(true);
+					gameBoard[rowcoord][columncoord + j].setName(name);
+				}
+				placedShip = true;
+			}
+		}
+		else {
+			for (int j = 0; j < length; j++) {
+				if (gameBoard[rowcoord + j][columncoord].getOccupied()) {
+					validPlace = false;
+					break;
+				}
+			}
+			if (validPlace) {
+				for (int j = 0; j < length; j++) {
+					gameBoard[rowcoord + j][columncoord].setOccupied(true);
+					gameBoard[rowcoord + j][columncoord].setName(name);
+				}
+				placedShip = true;
+			}
+		}
+
+		if (placedShip)
+			break;
+	}
+
+}
+
+// place_All_Ships
+// Given a board, calls random_Place_Ship (above) with the appropriate
+// ship names and lengths to get them all placed on the board.
+void place_All_Ships(Board(&gameBoard)[10][10]) {
+	random_Place_Ship(5, "Carrier", gameBoard);
+	random_Place_Ship(4, "Battleship", gameBoard);
+	random_Place_Ship(3, "Submarine", gameBoard);
+	random_Place_Ship(3, "Destroyer", gameBoard);
+	random_Place_Ship(2, "Patrol Boat", gameBoard);
+}
+
+// countShipHealth
+// Given a board and a name, seeks each square on the board for matches
+// with that name. Returns the number of squares with that name
+// that have NOT yet been hit.
+int countShipHealth(Board(&gameBoard)[10][10], string name) {
+	int total = 0;
+	for (int i = 0; i < 10; i++) {
+		for (int j = 0; j < 10; j++) {
+			if ((gameBoard[i][j].getName() == name) && (!gameBoard[i][j].getHit())) {
+				total++;
+			}
+		}
+	}
+
+	return total;
 }
 
 // resolve_Board
-// Will need to take TWO boards as arguments.
 // Given a set of valid, available coordinates and a player flag,
 // adjusts the two board representations for that player accordingly.
-void resolve_Board(bool playerturn, string input, Board(&gameBoard)[10][10]) {
+void resolve_Board(Player& player, string input, Board(&mainBoard)[10][10], Board(&secondBoard)[10][10]) {
 	int row = row_Input(input);
 	int column = input[1] - '0';
 
-	gameBoard[row][column].setHit(true);
-	// UNFINISHED - if playerturn is false, needs to INSTEAD do this to
-	// the secondary player board
-}
-
-// print_Boards
-// Given a player flag, prints out the two boards
-// May need to take two boards, depending on how we deal with them.
-void print_Boards(bool playerturn) {
-	if (playerturn) {
-		// Print the player's primary board
+	if (player.getNonPlayerFlag()) {
+		mainBoard[row][column].setHit(true);
+		if (mainBoard[row][column].getOccupied()) {
+			if (countShipHealth(mainBoard, mainBoard[row][column].getName()) == 0) {
+				player.decShipCount();
+				cout << endl << "****************************************************************" << endl;
+				cout << "*** You sunk my " << mainBoard[row][column].getName() << "! ***" << endl;
+				cout << "****************************************************************" << endl;
+			}
+		}
 	}
-	// Whether it's the AI's turn or the player's turn, you then
-	// print the secondary board.
+	else {
+		secondBoard[row][column].setHit(true);
+		if (secondBoard[row][column].getOccupied()) {
+			if (countShipHealth(secondBoard, secondBoard[row][column].getName()) == 0) {
+				player.decShipCount();
+				cout << endl << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;
+				cout << "^^^ I sunk your " << secondBoard[row][column].getName() << "! ^^^" << endl;
+				cout << "^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^" << endl;
+			}
+		}
+	}
 }
-
