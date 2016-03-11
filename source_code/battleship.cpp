@@ -7,6 +7,8 @@
 // Project 1
 // Main file for Battleship
 
+/* !!! MUST COMPILE WITH C++ 11 !! */
+
 #include "battleship.h"
 #include "player.h"
 #include "board.h"
