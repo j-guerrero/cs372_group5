@@ -1,3 +1,12 @@
+// player.h
+// Cody Gaines
+// Joshua Guerrero
+// March 10, 2016
+// 
+// CS372
+// Project 1
+// Header file for Player class object
+
 #ifndef PLAYER_H_INCLUDED
 #define PLAYER_H_INCLUDED
 
@@ -29,9 +38,6 @@ class Player
 	private:
 		int shipCount;
 		bool playerFlag;
-
-		// Variable that holds ship
-		// Variable that holds player board
 };
 
 #endif

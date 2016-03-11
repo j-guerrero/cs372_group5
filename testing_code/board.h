@@ -1,3 +1,12 @@
+// board.h
+// Cody Gaines
+// Joshua Guerrero
+// March 10, 2016
+// 
+// CS372
+// Project 1
+// Header file for Board class object
+
 #pragma once
 
 #include <iostream>
@@ -60,6 +69,16 @@ public:
 	{
 		occupied = flag;
 	}
+
+	// Operator =
+	// Used when initially generating random boards to allow me to "blank"
+	// the board before it's set again.
+	Board Board::operator=(const Board& other) {
+		(*this).occupied = other.occupied;
+		(*this).name = other.name;
+
+		return *this;
+	}
 };
 
 void displayBoard(bool displayShips, Board(&gameBoard)[10][10])
@@ -100,20 +119,3 @@ void displayBoard(bool displayShips, Board(&gameBoard)[10][10])
 		cout << endl;
 	}
 }
-
-/*
-// Sets hit flag for coord
-void testBoard(Board(&gameBoard)[10][10], string coord)
-{
-	for (int i = 0; i < 10; ++i)
-	{
-		for (int j = 0; j < 10; ++j)
-		{
-			if (gameBoard[i][j].getName() == coord)
-			{
-				gameBoard[i][j].setHit(true);
-				break;
-			}
-		}
-	}
-}*/

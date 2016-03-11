@@ -1,3 +1,12 @@
+// battleship.h
+// Cody Gaines
+// Joshua Guerrero
+// March 10, 2016
+// 
+// CS372
+// Project 1
+// Header file for main functions
+
 #pragma once
 
 #include "board.h"
@@ -8,6 +17,7 @@ using std::string;
 using std::vector;
 #include <ctype.h>
 #include <random>
+#include <algorithm>
 using std::random_shuffle;
 #include <time.h>
 #include <string>
@@ -73,7 +83,7 @@ bool check_Validity(string input) {
 	string first = "AaBbCcDdEeFfGgHhIiJj";
 	string second = "0123456789"; // Does not check for '10,' instead we start counting from 0
 
-	if (input.size() < 2)
+	if (input.size() > 2)
 		return false;
 
 	if ( (first.find(input[0]) != string::npos ) && (second.find(input[1]) != string::npos) ){
@@ -206,7 +216,7 @@ void resolve_Board(Player& player, string input, Board(&mainBoard)[10][10], Boar
 	int row = row_Input(input);
 	int column = input[1] - '0';
 
-	if (player.getNonPlayerFlag()) {
+	if (!player.getNonPlayerFlag()) {
 		mainBoard[row][column].setHit(true);
 		if (mainBoard[row][column].getOccupied()) {
 			if (countShipHealth(mainBoard, mainBoard[row][column].getName()) == 0) {

@@ -69,6 +69,16 @@ public:
 	{
 		occupied = flag;
 	}
+
+	// Operator =
+	// Used when initially generating random boards to allow me to "blank"
+	// the board before it's set again.
+	Board Board::operator=(const Board& other) {
+		(*this).occupied = other.occupied;
+		(*this).name = other.name;
+
+		return *this;
+	}
 };
 
 void displayBoard(bool displayShips, Board(&gameBoard)[10][10])

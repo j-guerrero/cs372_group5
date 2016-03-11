@@ -30,7 +30,7 @@ int main() {
 
 	Board mainBoard[10][10];	//	intialize game board
 	Board secondBoard[10][10];
-	Board emptyBoard[10][10];
+	Board blankBoard[10][10];
 
 	bool gameOver = false;
 	bool playerTurn = true;
@@ -53,9 +53,22 @@ int main() {
 	cout << "[][][][][] WELCOME TO BATTLESHIP!!! [][][][][]" << endl << endl;
 
 	cout << "Time to place your ships! Because I'm lazy, you'll have to live with" << endl;
-	cout << "randomly generated positions. Oh well." << endl;
-	place_All_Ships(secondBoard);
-	displayBoard(true, secondBoard);
+	cout << "randomly generated positions. But you can re-generate them until you're happy." << endl;
+
+	while (true) {
+		for (int i = 0; i < 10; i++) {
+			for (int j = 0; j < 10; j++) {
+				secondBoard[i][j] = blankBoard[i][j];
+			}
+		}
+		place_All_Ships(secondBoard);
+		displayBoard(true, secondBoard);
+
+		cout << "To ACCEPT, press 'Y' or 'y'" << endl << "To REJECT, press ENTER" << endl;
+		std::getline(cin, input);
+		if (input == "Y" || input == "y")
+			break;
+	}
 
 	while (!gameOver) {
 		if (playerTurn) {
@@ -80,12 +93,12 @@ int main() {
 		else {
 			cout << endl << "It's the opponent's turn. Firing..." << endl << endl;
 			input = AI_Input(AITotalInput);
-			std::this_thread::sleep_for(std::chrono::seconds(2));
-		}
+			std::this_thread::sleep_for(std::chrono::seconds(2));	// This is purely to simulate the AI thinking, giving
+		}															// the player a chance to reflect on their own move.
 
 		if (playerTurn) {
 			cout << endl << endl << endl << endl;
-			resolve_Board(Human, input, mainBoard, secondBoard);
+			resolve_Board(AI, input, mainBoard, secondBoard);
 			cout << "---- ENEMY BOARD ----" << endl;
 			displayBoard(false, mainBoard);
 
@@ -93,13 +106,9 @@ int main() {
 				gameOver = true;
 				cout << "******** All enemy ships have sunk! You win! ********" << endl;
 			}
-			if (Human.getShipCount() == 0) {
-				gameOver = true;
-				cout << "^^^^^^^^ All your ships have sunk! You lose! ^^^^^^^^" << endl;
-			}
 		}
 		else {
-			resolve_Board(AI, input, mainBoard, secondBoard);
+			resolve_Board(Human, input, mainBoard, secondBoard);
 			cout << "--- YOUR BOARD ---" << endl;
 			displayBoard(true, secondBoard);
 
