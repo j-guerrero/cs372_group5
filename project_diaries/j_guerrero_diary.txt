@@ -3,7 +3,6 @@ CS372 Software Construction
 Project Dairy
 
 === February 8, 2016 - Monday ===
-
 	Created repository for group project and set up file directories. Plan to get together and start working out how we are going to go through documentation before Wednesday.
 
 === February 17, 2016 - Thursday ===
@@ -15,10 +14,26 @@ Project Dairy
 == February 22, 2016, Monday == 
 	Talked to Cody and split up work for presentation on Friday. Formulated ideas for how we wanted to split up the work before Friday. Cody would work on basic setup code for our game while I polish up our requirements documentation.
 
-== February 26, 2016 ==
+== February 24, 2016 — Wednesday ==
+	Wasn’t able to show up to class today, due to helping a friend with a medical emergency, but was able to contact Cody early on and coordinate where to move on from where we’re currently at.
+
+== February 26, 2016 — Friday ==
 	Made a formal Word document for our requirements document, started filling it out, and uploaded it to our GitHub repo. Need to talk to Cody to agree on how we want to differentiate or functional requirements from non-functional requirements. Also, need to sort our a little more how we want our document to flow.
 
 	We also have a running program we can present to the class on Friday. It’s basic but it runs. We also have a test file that uses “catch.hpp” for testing certain input.
 
-== February 29, 2016 ==
+== February 29, 2016 — Monday==
 	Created a file to prototype board creation and coordinate checking. Cody said he would take it and work with it. Even though we are a little behind compared to others, we have put a lot of thought into which steps we want to take next.
+
+== March 2, 2016 — Wednesday ==
+	Had a chance to chat with Cody about implementing more board functions. Our main concern now is mostly AI and ship placement. We took some time getting our ideas out but we came to a nice resolution on how we just wanted to get an AI working that selected random coordinates but could keep track of previous coordinates. This would at least get us with an opponent that could eventually take down the player within 100 moves and wouldn’t be trying redundant moves.
+
+== March 6, 2016 — Sunday ==
+	Pretty busy week so far. Thought of a few ideas for pattern recognition for the computer opponent and different ways to place ships based on orientation. Cody has some great ideas and offered to do most of the coding so I’m focusing on formatting our documentation on GitHub and finalizing our functional requirements. We’ve been keeping each other updated through email and text whenever we commit to changes in the code. It really helps allow us to keep on the same level and spitball ideas.
+
+== March 9, 2016 — Wednesday ==
+	Putting the finishing touches on the documentation. Cody got the final pieces of code put together and we have a functioning game of Battleship. We both had some ideas for how to better implement the ship placement and AI firing formulas but it’s almost too much effort for all the exams we both have this week. For sake of time and sanity, we opted to keep the design of the program simple. It really helped that we knew what to expect from our end goal because it allowed us to manage our time easier and keep our expectations realistic. Now all that is left is for the documentation to get finalized.
+
+
+== March 10, 2016 — Thursday ==
+	Was able to get the Requirements documentation and Design documentation finished and uploaded to GitHub. Had Cody take a look at it before I was completed and we’re both pretty happy with the work we put in over the course of the project on both coding and writing. It was definitely fun to work with Cody and be able to communicate to a level where we knew what was happening most of the time and where to proceed. There are definitely things we both would like to improve but, for the sake of the project’s purpose, we’re okay with just having something that works as intended and have the process documented thoroughly.
