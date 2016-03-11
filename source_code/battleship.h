@@ -1,3 +1,12 @@
+// battleship.h
+// Cody Gaines
+// Joshua Guerrero
+// March 10, 2016
+// 
+// CS372
+// Project 1
+// Header file for main functions
+
 #pragma once
 
 #include "board.h"

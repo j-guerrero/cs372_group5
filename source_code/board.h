@@ -1,3 +1,12 @@
+// board.h
+// Cody Gaines
+// Joshua Guerrero
+// March 10, 2016
+// 
+// CS372
+// Project 1
+// Header file for Board class object
+
 #pragma once
 
 #include <iostream>
@@ -100,20 +109,3 @@ void displayBoard(bool displayShips, Board(&gameBoard)[10][10])
 		cout << endl;
 	}
 }
-
-/*
-// Sets hit flag for coord
-void testBoard(Board(&gameBoard)[10][10], string coord)
-{
-	for (int i = 0; i < 10; ++i)
-	{
-		for (int j = 0; j < 10; ++j)
-		{
-			if (gameBoard[i][j].getName() == coord)
-			{
-				gameBoard[i][j].setHit(true);
-				break;
-			}
-		}
-	}
-}*/

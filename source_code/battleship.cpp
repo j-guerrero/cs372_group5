@@ -1,8 +1,12 @@
 // battleship.cpp
 // Cody Gaines
+// Joshua Guerrero
+// March 10, 2016
+// 
+// CS372
+// Project 1
+// Main file for Battleship
 
-//#define CATCH_CONFIG_MAIN
-#include "catch.hpp"
 #include "battleship.h"
 #include "player.h"
 #include "board.h"
